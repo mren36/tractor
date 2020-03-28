@@ -1,0 +1,26 @@
+{
+  "name": "tractor",
+  "version": "0.0.1",
+  "description": "tractor app",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "socket.io": "^2.3.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mren36/tractor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mren36/tractor/issues"
+  },
+  "homepage": "https://github.com/mren36/tractor#readme"
+}
