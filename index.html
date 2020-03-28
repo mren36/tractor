@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>tractor</title>
+    <style>
+      #predraw {
+        display: none;
+      }
+      #draws {
+        display: none;
+      }
+      #plays {
+        display: none;
+      }
+      #postgame {
+        display: none;
+      }
+      .red {
+        color: red;
+      }
+      .center {
+        text-align: center;
+      }
+      .right {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>tractor</h1>
+    <div id="pregame">
+      <p id="pgplist">players:</p>
+      <p>enter name:</p>
+      <input id="name" type="text" />
+      <button id="playbutton">play</button>
+      <p id="pgmsg"></p>
+    </div>
+    <div id="predraw">
+      <p id="dplist">players:</p>
+      <p id="pdmsg"></p>
+      <button id="startbutton">start</button>
+    </div>
+    <div id="draws">
+      <p id="topp" class="center"></p>
+      <p id="topc" class="center"></p>
+      <p id="leftp"></p>
+      <p id="leftc"></p>
+      <p id="centerc" class="center"></p>
+      <p id="pointc" class="center"></p>
+      <div id="okwrap" class="center"><button id="ok">ok</button></div>
+      <p id="rightc" class="right"></p>
+      <p id="rightp" class="right"></p>
+      <p id="botc" class="center"></p>
+      <p id="botp" class="center"></p>
+      <div id="cards" class="center">
+        <p id="spades" class="center"></p>
+        <p id="hearts" class="center"></p>
+        <p id="diamonds" class="center"></p>
+        <p id="clubs" class="center"></p>
+        <p id="trump" class="center"></p>
+        <p id="bottom" class="center"></p>
+      </div>
+      <div id="drawmsg">
+        <p id="dismsg" class="center"></p>
+        <div id="dwrap" class="center">
+          <button id="discard">discard</button>
+        </div>
+        <p id="rmsg" class="right"></p>
+        <button id="bagbutton" style="float: right;">view bottom</button>
+        <p id="dmsg"></p>
+        <div id="rbuts" class="right"></div>
+        <p id="dturn"></p>
+        <button id="drawbutton">draw</button>
+      </div>
+      <div id="playmsg">
+        <div id="pwrap" class="center"><button id="play">play</button></div>
+        <div id="chwrap" class="center">
+          <button id="challenge">challenge</button>
+        </div>
+        <p id="perror" class="center"></p>
+        <p id="tmsg"></p>
+        <p id="points" class="right"></p>
+        <p id="config"></p>
+        <p id="pcards" class="right"></p>
+        <p id="penalty" class="right"></p>
+      </div>
+    </div>
+    <div id="postgame">
+      <p id="scored" class="center"></p>
+      <p id="bottomc" class="center"></p>
+      <p id="penaltied" class="center"></p>
+      <p id="fscore" class="center"></p>
+      <p id="wmsg" class="center"></p>
+      <p id="nextdeal" class="center"></p>
+      <div id="cwrap" class="center"><button id="cont">continue</button></div>
+      <p id="gwmsg" class="center"></p>
+      <p id="cmsg"></p>
+    </div>
+  </body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="/static/game.js"></script>
+</html>
