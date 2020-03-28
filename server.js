@@ -12,7 +12,7 @@ var io = socketIO(server, {
 });
 app.set("port", port);
 app.use("/static", express.static(__dirname + "/static")); // Routing
-app.get("/", function(request, response) {
+app.get("*", function(request, response) {
   response.sendFile(path.join(__dirname, "index.html"));
 }); // Starts the server.
 server.listen(port, function() {
@@ -88,6 +88,7 @@ io.on("connection", function(socket) {
   });
 
   socket.on("reqdraw", function() {
+    console.log("HI");
     state.players[socket.id].cards = insert(
       state.players[socket.id].cards,
       state.deck[state.drawn]

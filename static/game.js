@@ -9,6 +9,7 @@ socket.on("reset", function(state) {
   $("#postgame").hide();
   $("#drawmsg").show();
   $("#playmsg").hide();
+  $("#title").show();
   var names = "";
   for (var i = 0; i < Object.keys(state.players).length; i++) {
     var p = Object.keys(state.players)[i];
@@ -52,6 +53,7 @@ socket.on("nameupdate", function(state) {
 
 socket.on("startdraw", function(state) {
   $("#pregame").hide();
+  $("#title").hide();
   $("#predraw").show();
   $("#drawbutton").hide();
   $("#startbutton").hide();
@@ -1247,6 +1249,9 @@ function declaring(state, id) {
     (state.drawn == 100 && state.dlevel == 3)
   )
     socket.emit("pass");
+  console.log(autodraw);
+  console.log(ind);
+  console.log(state.turn);
   if (autodraw && state.drawn < 100 && ind == (state.turn + 1) % 4)
     socket.emit("reqdraw");
 }
