@@ -8,7 +8,7 @@ var app = express();
 var server = http.Server(app);
 var io = socketIO(server, {
   pingInterval: 2000,
-  pingTimeout: 300000
+  pingTimeout: 600000
 });
 app.set("port", port);
 app.use("/static", express.static(__dirname + "/static")); // Routing
@@ -194,6 +194,7 @@ io.on("connection", function(socket) {
   });
 
   socket.on("playing", function(plays) {
+    console.log(Object.keys(state.players));
     var pcs = [];
     for (let i = 0; i < plays.length; i++)
       pcs.push(state.players[socket.id].cards[plays[i]]);
