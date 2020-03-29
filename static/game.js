@@ -957,7 +957,7 @@ var rankmap = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
 
 var trumpmap = ["spades", "hearts", "diamonds", "clubs", "no trump"];
 
-var autodraw = true;
+var autodraw = false;
 
 function rcards(state, id) {
   var s = "spades:";
