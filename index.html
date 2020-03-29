@@ -2,9 +2,19 @@
 <html>
   <head>
     <title>tractor</title>
+    <link
+      rel="stylesheet"
+      href="/node_modules/dejavu-sans/css/dejavu-sans.css"
+    />
     <style>
+      body {
+        font-family: "DejaVu Sans";
+      }
+      button {
+        font-family: inherit;
+      }
       .largefont {
-        font-size: 400%;
+        font-size: 200%;
       }
       #predraw {
         display: none;
@@ -44,18 +54,6 @@
       <button id="startbutton">start</button>
     </div>
     <div id="draws">
-      <div id="drawmsg">
-        <p id="dismsg" class="center"></p>
-        <div id="dwrap" class="center">
-          <button id="discard">discard</button>
-        </div>
-        <p id="rmsg" class="right"></p>
-        <button id="bagbutton" style="float: right;">view bottom</button>
-        <p id="dmsg"></p>
-        <div id="rbuts" class="right"></div>
-        <p id="dturn"></p>
-        <button id="drawbutton">draw</button>
-      </div>
       <p id="topp" class="center"></p>
       <p id="topc" class="center"></p>
       <p id="leftp"></p>
@@ -74,6 +72,18 @@
         <p id="clubs" class="center"></p>
         <p id="trump" class="center"></p>
         <p id="bottom" class="center"></p>
+      </div>
+      <div id="drawmsg">
+        <p id="dismsg" class="center"></p>
+        <div id="dwrap" class="center">
+          <button id="discard">discard</button>
+        </div>
+        <p id="dturn"></p>
+        <button id="drawbutton">draw</button>
+        <p id="rmsg" class="right"></p>
+        <button id="bagbutton" style="float: right;">view bottom</button>
+        <p id="dmsg"></p>
+        <div id="rbuts" class="right"></div>
       </div>
       <div id="playmsg">
         <div id="pwrap" class="center"><button id="play">play</button></div>

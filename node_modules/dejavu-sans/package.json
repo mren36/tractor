@@ -1,0 +1,63 @@
+{
+  "_from": "dejavu-sans",
+  "_id": "dejavu-sans@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-fDnRICZcJsUSCDrVdlvFwNEAsWQ=",
+  "_location": "/dejavu-sans",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "dejavu-sans",
+    "name": "dejavu-sans",
+    "escapedName": "dejavu-sans",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/dejavu-sans/-/dejavu-sans-1.0.0.tgz",
+  "_shasum": "7c39d120265c26c512083ad5765bc5c0d100b164",
+  "_spec": "dejavu-sans",
+  "_where": "/Users/Mike/Desktop/tractor",
+  "author": {
+    "name": "Lado Lomidze",
+    "email": "lado.lomidze@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/web-fonts/dejavu-sans/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "DejaVu Sans Web-Font Package",
+  "homepage": "https://github.com/web-fonts/dejavu-sans",
+  "keywords": [
+    "ttf",
+    "woff",
+    "woff2",
+    "svg",
+    "font",
+    "web-font",
+    "dejavu-sans"
+  ],
+  "licenses": [
+    {
+      "type": "CC-BY-NC-ND 4.0",
+      "url": "http://creativecommons.org/licenses/by-nc-nd/4.0/"
+    },
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "css/dejavu-sans.css",
+  "name": "dejavu-sans",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/web-fonts/dejavu-sans.git"
+  },
+  "version": "1.0.0"
+}

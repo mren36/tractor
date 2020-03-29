@@ -501,10 +501,18 @@ socket.on("badthrow", function(state) {
       if (j < 104 && j % 26 != 2 * state.rank && j % 26 != 2 * state.rank + 1) {
         if (Math.floor(j / 26) != state.trump)
           s[Math.floor(j / 26)] +=
-            "<input type='checkbox' id='c" + i + "'>" + cards[j] + "</input>";
+            "<input type='checkbox' id='c" +
+            i +
+            "'>" +
+            cards[j] +
+            "</input>\u00A0\u00A0\u00A0\u00A0";
         else
           s[4] +=
-            "<input type='checkbox' id='c" + i + "'>" + cards[j] + "</input>";
+            "<input type='checkbox' id='c" +
+            i +
+            "'>" +
+            cards[j] +
+            "</input>\u00A0\u00A0\u00A0\u00A0";
       }
     }
     var d = state.players[socket.id].cards;
@@ -516,15 +524,15 @@ socket.on("badthrow", function(state) {
             d.indexOf(26 * i + 2 * state.rank) +
             "'>" +
             cards[26 * i + 2 * state.rank] +
-            "</input>";
+            "</input>\u00A0\u00A0\u00A0\u00A0";
         if (d.includes(26 * i + 2 * state.rank + 1))
           s[4] +=
             "<input type='checkbox' id='c" +
             d.indexOf(26 * i + 2 * state.rank + 1) +
             "'>" +
             cards[26 * i + 2 * state.rank + 1] +
-            "</input>";
-        cards[26 * i + 2 * state.rank + 1] + "</input>";
+            "</input>\u00A0\u00A0\u00A0\u00A0";
+        cards[26 * i + 2 * state.rank + 1] + "</input>\u00A0\u00A0\u00A0\u00A0";
       }
     if (state.trump != 4 && d.includes(26 * state.trump + 2 * state.rank))
       s[4] +=
@@ -532,16 +540,18 @@ socket.on("badthrow", function(state) {
         d.indexOf(26 * state.trump + 2 * state.rank) +
         "'>" +
         cards[26 * state.trump + 2 * state.rank] +
-        "</input>";
-    cards[26 * state.trump + 2 * state.rank] + "</input>";
+        "</input>\u00A0\u00A0\u00A0\u00A0";
+    cards[26 * state.trump + 2 * state.rank] +
+      "</input>\u00A0\u00A0\u00A0\u00A0";
     if (state.trump != 4 && d.includes(26 * state.trump + 2 * state.rank + 1))
       s[4] +=
         "<input type='checkbox' id='c" +
         d.indexOf(26 * state.trump + 2 * state.rank + 1) +
         "'>" +
         cards[26 * state.trump + 2 * state.rank + 1] +
-        "</input>";
-    cards[26 * state.trump + 2 * state.rank + 1] + "</input>";
+        "</input>\u00A0\u00A0\u00A0\u00A0";
+    cards[26 * state.trump + 2 * state.rank + 1] +
+      "</input>\u00A0\u00A0\u00A0\u00A0";
     for (let i = 104; i < 108; i++)
       if (d.includes(i))
         s[4] +=
@@ -549,7 +559,7 @@ socket.on("badthrow", function(state) {
           d.indexOf(i) +
           "'>" +
           cards[i] +
-          "</input>";
+          "</input>\u00A0\u00A0\u00A0\u00A0";
     if (state.trump < 4) s[state.trump] = "";
     for (let i = 0; i < 4; i++) $("#" + trumpmap[i]).html(s[i]);
     $("#trump").html(s[4]);
@@ -947,7 +957,7 @@ var rankmap = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
 
 var trumpmap = ["spades", "hearts", "diamonds", "clubs", "no trump"];
 
-var autodraw = false;
+var autodraw = true;
 
 function rcards(state, id) {
   var s = "spades:";
@@ -987,10 +997,18 @@ function ucards(state, id) {
       if (j < 104 && j % 26 != 2 * state.rank && j % 26 != 2 * state.rank + 1) {
         if (Math.floor(j / 26) != state.trump)
           s[Math.floor(j / 26)] +=
-            "<input type='checkbox' id='c" + i + "'>" + cards[j] + "</input>";
+            "<input type='checkbox' id='c" +
+            i +
+            "'>" +
+            cards[j] +
+            "</input>\u00A0\u00A0\u00A0\u00A0";
         else
           s[4] +=
-            "<input type='checkbox' id='c" + i + "'>" + cards[j] + "</input>";
+            "<input type='checkbox' id='c" +
+            i +
+            "'>" +
+            cards[j] +
+            "</input>\u00A0\u00A0\u00A0\u00A0";
       }
     }
     var d = state.players[id].cards;
@@ -1002,15 +1020,15 @@ function ucards(state, id) {
             d.indexOf(26 * i + 2 * state.rank) +
             "'>" +
             cards[26 * i + 2 * state.rank] +
-            "</input>";
+            "</input>\u00A0\u00A0\u00A0\u00A0";
         if (d.includes(26 * i + 2 * state.rank + 1))
           s[4] +=
             "<input type='checkbox' id='c" +
             d.indexOf(26 * i + 2 * state.rank + 1) +
             "'>" +
             cards[26 * i + 2 * state.rank + 1] +
-            "</input>";
-        cards[26 * i + 2 * state.rank + 1] + "</input>";
+            "</input>\u00A0\u00A0\u00A0\u00A0";
+        cards[26 * i + 2 * state.rank + 1] + "</input>\u00A0\u00A0\u00A0\u00A0";
       }
     if (state.trump != 4 && d.includes(26 * state.trump + 2 * state.rank))
       s[4] +=
@@ -1018,14 +1036,14 @@ function ucards(state, id) {
         d.indexOf(26 * state.trump + 2 * state.rank) +
         "'>" +
         cards[26 * state.trump + 2 * state.rank] +
-        "</input>";
+        "</input>\u00A0\u00A0\u00A0\u00A0";
     if (state.trump != 4 && d.includes(26 * state.trump + 2 * state.rank + 1))
       s[4] +=
         "<input type='checkbox' id='c" +
         d.indexOf(26 * state.trump + 2 * state.rank + 1) +
         "'>" +
         cards[26 * state.trump + 2 * state.rank + 1] +
-        "</input>";
+        "</input>\u00A0\u00A0\u00A0\u00A0";
     for (let i = 104; i < 108; i++)
       if (d.includes(i))
         s[4] +=
@@ -1033,7 +1051,7 @@ function ucards(state, id) {
           d.indexOf(i) +
           "'>" +
           cards[i] +
-          "</input>";
+          "</input>\u00A0\u00A0\u00A0\u00A0";
     if (state.trump < 4) s[state.trump] = "";
     for (let i = 0; i < 4; i++) $("#" + trumpmap[i]).html(s[i]);
     $("#trump").html(s[4]);
@@ -1048,10 +1066,18 @@ function pcards(state, id) {
       if (j < 104 && j % 26 != 2 * state.rank && j % 26 != 2 * state.rank + 1) {
         if (Math.floor(j / 26) != state.trump)
           s[Math.floor(j / 26)] +=
-            "<input type='checkbox' id='c" + i + "'>" + cards[j] + "</input>";
+            "<input type='checkbox' id='c" +
+            i +
+            "'>" +
+            cards[j] +
+            "</input>\u00A0\u00A0\u00A0\u00A0";
         else
           s[4] +=
-            "<input type='checkbox' id='c" + i + "'>" + cards[j] + "</input>";
+            "<input type='checkbox' id='c" +
+            i +
+            "'>" +
+            cards[j] +
+            "</input>\u00A0\u00A0\u00A0\u00A0";
       }
     }
     var d = state.players[id].cards;
@@ -1063,15 +1089,15 @@ function pcards(state, id) {
             d.indexOf(26 * i + 2 * state.rank) +
             "'>" +
             cards[26 * i + 2 * state.rank] +
-            "</input>";
+            "</input>\u00A0\u00A0\u00A0\u00A0";
         if (d.includes(26 * i + 2 * state.rank + 1))
           s[4] +=
             "<input type='checkbox' id='c" +
             d.indexOf(26 * i + 2 * state.rank + 1) +
             "'>" +
             cards[26 * i + 2 * state.rank + 1] +
-            "</input>";
-        cards[26 * i + 2 * state.rank + 1] + "</input>";
+            "</input>\u00A0\u00A0\u00A0\u00A0";
+        cards[26 * i + 2 * state.rank + 1] + "</input>\u00A0\u00A0\u00A0\u00A0";
       }
     if (state.trump != 4 && d.includes(26 * state.trump + 2 * state.rank))
       s[4] +=
@@ -1079,16 +1105,18 @@ function pcards(state, id) {
         d.indexOf(26 * state.trump + 2 * state.rank) +
         "'>" +
         cards[26 * state.trump + 2 * state.rank] +
-        "</input>";
-    cards[26 * state.trump + 2 * state.rank] + "</input>";
+        "</input>\u00A0\u00A0\u00A0\u00A0";
+    cards[26 * state.trump + 2 * state.rank] +
+      "</input>\u00A0\u00A0\u00A0\u00A0";
     if (state.trump != 4 && d.includes(26 * state.trump + 2 * state.rank + 1))
       s[4] +=
         "<input type='checkbox' id='c" +
         d.indexOf(26 * state.trump + 2 * state.rank + 1) +
         "'>" +
         cards[26 * state.trump + 2 * state.rank + 1] +
-        "</input>";
-    cards[26 * state.trump + 2 * state.rank + 1] + "</input>";
+        "</input>\u00A0\u00A0\u00A0\u00A0";
+    cards[26 * state.trump + 2 * state.rank + 1] +
+      "</input>\u00A0\u00A0\u00A0\u00A0";
     for (let i = 104; i < 108; i++)
       if (d.includes(i))
         s[4] +=
@@ -1096,7 +1124,7 @@ function pcards(state, id) {
           d.indexOf(i) +
           "'>" +
           cards[i] +
-          "</input>";
+          "</input>\u00A0\u00A0\u00A0\u00A0";
     if (state.trump < 4) s[state.trump] = "";
     for (let i = 0; i < 4; i++) $("#" + trumpmap[i]).html(s[i]);
     $("#trump").html(s[4]);
