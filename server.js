@@ -12,7 +12,7 @@ var io = socketIO(server, {
 });
 app.set("port", port);
 app.use("/static", express.static(__dirname + "/static")); // Routing
-app.get("*", function(request, response) {
+app.get("/", function(request, response) {
   response.sendFile(path.join(__dirname, "index.html"));
 }); // Starts the server.
 server.listen(port, function() {
@@ -1282,5 +1282,3 @@ var points = [
 var suitmap = ["spade", "heart", "diamond", "club", "trump"];
 
 var priority = [];
-
-var clap = {};
