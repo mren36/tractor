@@ -102,6 +102,16 @@ socket.on("loaddraw", function(state) {
       rankmap[state.players[state.turnorder[(ind + 3) % 4]].rank] +
       "]"
   );
+  if (state.dealer != "") {
+    var dind = state.turnorder.indexOf(state.dealer);
+    $(posmap[(dind - ind + 4) % 4]).html(
+      "&#x2605 " +
+        state.players[state.dealer].name +
+        " [" +
+        rankmap[state.players[state.dealer].rank] +
+        "]"
+    );
+  }
   $("#botc").html(display(state.players[socket.id].play));
   $("#rightc").html(
     display(state.players[state.turnorder[(ind + 1) % 4]].play)
@@ -153,6 +163,13 @@ $("#drawbutton").click(function() {
 socket.on("drawdone", function(state) {
   var ind = state.turnorder.indexOf(socket.id);
   var dind = state.turnorder.indexOf(state.dealer);
+  $(posmap[(dind - ind + 4) % 4]).html(
+    "&#x2605 " +
+      state.players[state.dealer].name +
+      " [" +
+      rankmap[state.players[state.dealer].rank] +
+      "]"
+  );
   var offset = (dind + 4 - ind) % 4;
   $("#rbuts").html("declaring done");
   if (socket.id == state.dealer) {
@@ -241,7 +258,7 @@ socket.on("startplay", function(state) {
     );
   }
   if (state.dealer == socket.id)
-    $("#bottom").html("bottom: " + state.bpt + " points");
+    $("#bottom").html("bottom: " + display(state.bottom));
   $("#playmsg").show();
 });
 
