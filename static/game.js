@@ -977,11 +977,11 @@ var trumpmap = ["spades", "hearts", "diamonds", "clubs", "no trump"];
 var autodraw = false;
 
 function rcards(state, id) {
-  var s = "spades:";
-  var h = "hearts:";
-  var d = "diamonds:";
-  var c = "clubs:";
-  var t = "trump:";
+  var s = "spades:<span class=largefont>\u00A0</span>";
+  var h = "hearts:<span class=largefont>\u00A0</span>";
+  var d = "diamonds:<span class=largefont>\u00A0</span>";
+  var c = "clubs:<span class=largefont>\u00A0</span>";
+  var t = "trump:<span class=largefont>\u00A0</span>";
   for (i = 0; i < state.players[id].cards.length; i++) {
     var j = state.players[id].cards[i];
     if (j > 103 || j % 26 == 2 * state.rank || j % 26 == 2 * state.rank + 1)
@@ -1007,7 +1007,13 @@ function rcards(state, id) {
 }
 
 function ucards(state, id) {
-  var s = ["spades: ", "hearts: ", "diamonds: ", "clubs: ", "trump: "];
+  var s = [
+    "spades:<span class=largefont>\u00A0</span>",
+    "hearts:<span class=largefont>\u00A0</span>",
+    "diamonds:<span class=largefont>\u00A0</span>",
+    "clubs:<span class=largefont>\u00A0</span>",
+    "trump:<span class=largefont>\u00A0</span>"
+  ];
   if (state.dealer == id) {
     for (let i = 0; i < state.players[id].cards.length; i++) {
       var j = state.players[id].cards[i];
@@ -1076,7 +1082,13 @@ function ucards(state, id) {
 }
 
 function pcards(state, id) {
-  var s = ["spades: ", "hearts: ", "diamonds: ", "clubs: ", "trump: "];
+  var s = [
+    "spades:<span class=largefont>\u00A0</span>",
+    "hearts:<span class=largefont>\u00A0</span>",
+    "diamonds:<span class=largefont>\u00A0</span>",
+    "clubs:<span class=largefont>\u00A0</span>",
+    "trump:<span class=largefont>\u00A0</span>"
+  ];
   if (state.turnorder[state.turn] == id) {
     for (let i = 0; i < state.players[id].cards.length; i++) {
       var j = state.players[id].cards[i];
@@ -1149,7 +1161,13 @@ function pcards(state, id) {
 }
 
 function scards(state, id) {
-  var s = ["spades: ", "hearts: ", "diamonds: ", "clubs: ", "trump: "];
+  var s = [
+    "spades:<span class=largefont>\u00A0</span>",
+    "hearts:<span class=largefont>\u00A0</span>",
+    "diamonds:<span class=largefont>\u00A0</span>",
+    "clubs:<span class=largefont>\u00A0</span>",
+    "trump:<span class=largefont>\u00A0</span>"
+  ];
   for (let i = 0; i < state.players[id].cards.length; i++) {
     var j = state.players[id].cards[i];
     if (j < 104 && j % 26 != 2 * state.rank && j % 26 != 2 * state.rank + 1) {
@@ -1235,6 +1253,7 @@ function dbuttons(arr) {
 }
 
 function display(arr) {
+  if (arr.length == 0) return "<span class=largefont>\u00A0</span>";
   var s = "";
   for (let i = 0; i < arr.length; i++) s += cards[arr[i]];
   return s;
