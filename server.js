@@ -30,6 +30,7 @@ io.on("connection", function(socket) {
   });
 
   socket.on("reqjoin", function(pname) {
+    console.log("reqjoin", socket.id, state);
     var used = false;
     for (let i = 0; i < Object.keys(state.players).length; i++) {
       var p = Object.keys(state.players)[i];
@@ -53,6 +54,7 @@ io.on("connection", function(socket) {
   });
 
   socket.on("start", function() {
+    console.log("start", socket.id, state);
     if (!Object.keys(state).includes("first")) state.first = true;
     state.stage = "draw";
     if (state.first) state.rank = 0;
@@ -88,7 +90,7 @@ io.on("connection", function(socket) {
   });
 
   socket.on("reqdraw", function() {
-    console.log("HI");
+    console.log("reqdraw", socket.id, state);
     state.players[socket.id].cards = insert(
       state.players[socket.id].cards,
       state.deck[state.drawn]
@@ -100,6 +102,7 @@ io.on("connection", function(socket) {
   });
 
   socket.on("declare", function(arr) {
+    console.log("declare", socket.id, state);
     if (arr.length > state.dlevel || (arr[0] > 103 && state.dlevel < 3)) {
       if (socket.id == state.declarer) {
         if (
@@ -128,6 +131,7 @@ io.on("connection", function(socket) {
   });
 
   socket.on("pass", function() {
+    console.log("pass", socket.id, state);
     state.players[socket.id].passed = true;
     if (
       state.players[state.turnorder[0]].passed &&
@@ -154,6 +158,7 @@ io.on("connection", function(socket) {
   });
 
   socket.on("reqbot", function() {
+    console.log("reqbot", socket.id, state);
     for (let i = 0; i < 8; i++)
       state.players[state.dealer].cards = insert(
         state.players[state.dealer].cards,
@@ -163,6 +168,7 @@ io.on("connection", function(socket) {
   });
 
   socket.on("discarding", function(discards) {
+    console.log("discarding", socket.id, state);
     if (discards.length == 8) {
       var bot = [];
       for (let i = 0; i < 8; i++)
@@ -194,7 +200,7 @@ io.on("connection", function(socket) {
   });
 
   socket.on("playing", function(plays) {
-    console.log(Object.keys(state.players));
+    console.log("playing", socket.id, state);
     var pcs = [];
     for (let i = 0; i < plays.length; i++)
       pcs.push(state.players[socket.id].cards[plays[i]]);
@@ -376,6 +382,7 @@ io.on("connection", function(socket) {
   });
 
   socket.on("ok", function() {
+    console.log("ok", socket.id, state);
     state.players[socket.id].oked = true;
     if (
       state.players[state.turnorder[0]].oked &&
@@ -429,6 +436,7 @@ io.on("connection", function(socket) {
   });
 
   socket.on("cont", function() {
+    console.log("cont", socket.id, state);
     state.players[socket.id].conted = true;
     if (
       state.players[state.turnorder[0]].conted &&
@@ -443,6 +451,7 @@ io.on("connection", function(socket) {
   });
 
   socket.on("challenge", function(challenge) {
+    console.log("challenge", socket.id, state);
     var pcs = [];
     for (let i = 0; i < challenge.length; i++)
       pcs.push(state.players[socket.id].cards[challenge[i]]);
@@ -494,6 +503,7 @@ io.on("connection", function(socket) {
   });
 
   socket.on("disconnect", function() {
+    console.log("disconnect", socket.id, state);
     if (Object.keys(state.players).includes(socket.id)) {
       state = {};
       state.players = {};
@@ -1282,3 +1292,5 @@ var points = [
 var suitmap = ["spade", "heart", "diamond", "club", "trump"];
 
 var priority = [];
+
+var asdf = 0;
