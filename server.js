@@ -92,14 +92,16 @@ io.on("connection", function(socket) {
 
   socket.on("reqdraw", function() {
     console.log("reqdraw", socket.id, util.inspect(state, { depth: null }));
-    state.players[socket.id].cards = insert(
-      state.players[socket.id].cards,
-      state.deck[state.drawn]
-    );
-    state.players[socket.id].lastcard = state.deck[state.drawn];
-    state.turn = (state.turn + 1) % 4;
-    state.drawn++;
-    io.sockets.emit("nextdraw", state);
+    if (state.drawn < 100 && state.turnorder[state.turn] == socket.id) {
+      state.players[socket.id].cards = insert(
+        state.players[socket.id].cards,
+        state.deck[state.drawn]
+      );
+      state.players[socket.id].lastcard = state.deck[state.drawn];
+      state.turn = (state.turn + 1) % 4;
+      state.drawn++;
+      io.sockets.emit("nextdraw", state);
+    }
   });
 
   socket.on("declare", function(arr) {

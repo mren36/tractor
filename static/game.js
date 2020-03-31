@@ -160,6 +160,10 @@ $("#drawbutton").click(function() {
   socket.emit("reqdraw");
 });
 
+$(document).keyup(function(e) {
+  if (e.keyCode == 32) socket.emit("reqdraw");
+});
+
 socket.on("drawdone", function(state) {
   var ind = state.turnorder.indexOf(socket.id);
   var dind = state.turnorder.indexOf(state.dealer);
